@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BtBeacons</string>
+    <string name="welcome_message">An app for getting beacon distances.</string>
+</resources>
