@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.btbeacons.MonitoringActivity;
 
+import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.Region;
@@ -42,10 +43,15 @@ public class BeaconApplication extends Application implements BootstrapNotifier 
 
         // Remove AltBeacon parser, and add the parser for iBeacon.
         beaconManager.getBeaconParsers().clear();
-        beaconManager.getBeaconParsers().add(new BeaconParser().
-                setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
+//        beaconManager.getBeaconParsers().add(new BeaconParser().
+//                setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
+//        beaconManager.getBeaconParsers().add(new BeaconParser().
+//                setBeaconLayout("m:1-2=aafe,d:3-3,d:4-5,d:6-7,d:8-11,d:12-15"));
+//        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_UID_LAYOUT));
+        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_TLM_LAYOUT));
+        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_URL_LAYOUT));
         beaconManager.setDebug(true);
-
+        Beacon.setHardwareEqualityEnforced(true);
         // Uncomment the code below to use a foreground service to scan for beacons. This unlocks
         // the ability to continually scan for long periods of time in the background on Andorid 8+
         // in exchange for showing an icon at the top of the screen and a always-on notification to

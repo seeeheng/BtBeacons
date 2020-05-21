@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.altbeacon.beacon.BeaconManager;
+import org.altbeacon.beacon.BeaconParser;
 
 public class MonitoringActivity extends Activity {
     protected static final String TAG = "MonitoringActivity";
@@ -156,6 +157,7 @@ public class MonitoringActivity extends Activity {
             this.startActivity(myIntent);
         }
     }
+
     public void onEnableClicked(View view) {
         BeaconApplication application = ((BeaconApplication) this.getApplicationContext());
         if (BeaconManager.getInstanceForApplication(this).getMonitoredRegions().size() > 0) {

@@ -84,17 +84,21 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     for(Beacon b : beacons){
                         String beaconMac = b.getBluetoothAddress();
                         double beaconDistance = b.getDistance();
+                        int beaconRSSI = b.getRssi();
+
                         DecimalFormat numberFormat = new DecimalFormat("#.00");
                         String beaconDistanceStr = numberFormat.format(beaconDistance);
 
-                        beaconString += beaconMac + " = " + beaconDistanceStr + "m.\n";
+//                        beaconString += beaconMac + " = " + beaconDistanceStr + "m.\n";
+                        beaconString += beaconMac + " = " + Integer.toString(beaconRSSI) + "dBm.\n";
 //                        Log.d("beacons","address = " + beaconMac);
 
                         if (phone_home==true){
                             JSONObject beaconData = new JSONObject();
                             try {
                                 beaconData.put("mac", beaconMac);
-                                beaconData.put("distance", b.getDistance());
+//                                beaconData.put("distance", b.getDistance());
+                                beaconData.put("rssi", beaconRSSI);
                             } catch (JSONException e){
                                 throw new RuntimeException(e);
                             }
