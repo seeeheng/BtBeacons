@@ -46,9 +46,9 @@ public class BeaconApplication extends Application implements BootstrapNotifier 
 //        beaconManager.getBeaconParsers().add(new BeaconParser().
 //                setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
 //        beaconManager.getBeaconParsers().add(new BeaconParser().
-//                setBeaconLayout("m:1-2=aafe,d:3-3,d:4-5,d:6-7,d:8-11,d:12-15"));
+//                setBeaconLayout("s:0-1=feaa,m:2-2=20,d:3-3,d:4-5,d:6-7,d:8-11,d:12-15"));
 //        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_UID_LAYOUT));
-        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_TLM_LAYOUT));
+//        beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_TLM_LAYOUT));
         beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout(BeaconParser.EDDYSTONE_URL_LAYOUT));
         beaconManager.setDebug(true);
         Beacon.setHardwareEqualityEnforced(true);
